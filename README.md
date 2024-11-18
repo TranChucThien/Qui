@@ -1,8 +1,8 @@
-# Hướng dẫn Xây Dựng và Triển Khai Docker
+# Hướng Dẫn Xây Dựng và Triển Khai Docker
 
-## 1. Xây dựng Hình Ảnh Docker
+## 1. Xây Dựng Hình Ảnh Docker
 
-Để xây dựng các hình ảnh Docker cho các phần của ứng dụng, sử dụng các lệnh sau trong terminal hoặc CMD tại thư mục chứa Dockerfile:
+Để xây dựng các hình ảnh Docker cho từng phần của ứng dụng, sử dụng các lệnh sau trong terminal hoặc CMD tại thư mục root của dự án:
 
 ```bash
 # Xây dựng hình ảnh cho phần quản trị (admin)
@@ -15,12 +15,22 @@ docker build -t user ./user/
 docker build -t be ./backend/
 ```
 
-## 2. Chạy Docker Compose
+## 2. Quản Lý Containers với Docker Compose
 
-Sau khi đã xây dựng xong các hình ảnh, bạn có thể sử dụng Docker Compose để khởi động và quản lý các container. Bạn cần tạo một file `docker-compose.yml` để định nghĩa cách các container tương tác với nhau.
+Sau khi cấu hình xong tệp `docker-compose.yml`, bạn có thể sử dụng các lệnh sau để quản lý các containers.
+
+### 2.1. Build và Chạy Tất Cả Services
 
 ```bash
-# Chạy docker-compose.yml
-docker compose up -d
+docker-compose up --build
 ```
+### 2.2. Chạy Containers Không Build Lại
 
+```bash
+docker-compose up -d
+```
+### 2.3. Dừng và Xóa Tất Cả Services
+
+```bash
+docker-compose down
+```
